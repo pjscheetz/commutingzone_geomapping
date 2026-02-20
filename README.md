@@ -27,7 +27,7 @@ Both country notebooks follow the same core algorithm:
 
 - **UK postal code polygons** (`uk.geojson`): [missinglink/uk-postcode-polygons](https://github.com/missinglink/uk-postcode-polygons/tree/master) on GitHub.
 - **Germany postal code polygons** (`plz-5stellig.*`): [Germany PLZ dataset](https://www.kaggle.com/datasets/jonaslneri/germany-plz/data) on Kaggle. Five-digit PLZ boundaries.
-- **Commuting zone definitions** (`meta_commuting_zones.csv`): Meta's Facebook Commuting Zones (FBCZs), containing zone IDs, names, population, area, and WKT geometries.
+- **Commuting zone definitions** (`meta_commuting_zones.csv`): [Meta's Facebook Commuting Zones (FBCZs)](https://ai.meta.com/ai-for-good/datasets/commuting-zones/), containing zone IDs, names, population, area, and WKT geometries.
 
 ## Outputs
 
