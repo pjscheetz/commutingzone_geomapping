@@ -10,7 +10,7 @@ Both country notebooks follow the same core algorithm:
 2. **Load commuting zone definitions** from `meta_commuting_zones.csv`, which contains WKT geometries for Meta's Facebook Commuting Zones. For the UK, multiple rows per zone are consolidated into a single geometry via `unary_union`.
 3. **Compute postal code centroids** by projecting to a local meter-based CRS (UK: EPSG:27700 British National Grid; DE: EPSG:25832 UTM zone 32N), computing the centroid, then projecting back to WGS84.
 4. **Spatial join** (`sjoin`, predicate `within`): assign each postal code centroid to the commuting zone polygon it falls inside.
-5. **Nearest-neighbor fallback**: any centroid that doesn't land inside a commuting zone polygon is assigned to the nearest zone by haversine (great-circle) distance between the unmatched centroid and commuting zone centroids, using `sklearn.neighbors.NearestNeighbors` with a ball tree.
+5. **Nearest-neighbor fallback**: any centroid that doesn't land inside a commuting zone polygon is assigned to the nearest zone by haversine (great-circle) distance between the unmatched centroid and commuting zone centroids, using `sklearn.neighbors.NearestNeighbors` with a ball tree. Typically this happens to coastal postal codes. The shapefiles tend to have some overlap with water which can drag the centroid out into the ocean.
 6. **Export** a CSV mapping (`PostCode -> NumericID, CommutingZoneID, CommutingZoneName`) and a GeoJSON of the commuting zones with postal code counts.
 
 ## Country-Specific Notes
